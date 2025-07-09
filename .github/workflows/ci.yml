@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      # ➔ Add `run: npm test` if/when you write tests
+      - run: npm test
