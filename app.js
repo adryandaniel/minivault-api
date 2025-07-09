@@ -6,9 +6,10 @@ const morgan = require('morgan');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const LOG_FILE = path.join(__dirname, 'logs', 'log.json');
+const logsDir = path.dirname(LOG_FILE);
 
-fs.mkdirSync(path.dirname(LOG_FILE), { recursive: true });
-if (!fs.existsSync(LOG_FILE)) fs.writeFileSync(LOG_FILE, '[]');
+fs.mkdirSync(logsDir, { recursive: true });
+if (!fs.existsSync(LOG_FILE)) fs.writeFileSync(LOG_FILE, '[]', 'utf-8');
 
 app.use(express.json());
 app.use(morgan('dev'));
